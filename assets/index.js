@@ -17,17 +17,22 @@ const select_country = null || document.getElementById('country');
 const btnGit = null || document.getElementById('btnGit');
 const btnDiscord = null || document.getElementById('btnDiscord');
 const btnTwiter = null || document.getElementById('btnTwiter');
-
+const refresh_weather = null || document.getElementById('refresh_weather');
 btnGit.addEventListener('click', () =>{
     window.open("https://github.com/davidvzCode");
 })
 
 btnDiscord.addEventListener('click', () =>{
-    window.open("https://github.com/davidvzCode");
+    //window.open("https://github.com/davidvzCode");
 })
 
 btnTwiter.addEventListener('click', () =>{
-    window.open("https://github.com/davidvzCode");
+    //window.open("https://github.com/davidvzCode");
+})
+
+refresh_weather.addEventListener('click', () =>{
+    console.log("Refreshing weather...");
+    loadWeather();
 })
 
 async function getCountry(url){
@@ -111,4 +116,3 @@ async function loadWeather(){
     }
 })();
 
-setTimeout(loadWeather,60000)
