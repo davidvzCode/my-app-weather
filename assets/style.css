@@ -109,6 +109,11 @@ a {
     opacity: 0.5;
 }
 
+.container__weather-tittle option {
+    height: 50px;
+    
+}
+
 .text-degrees {
     color: var(--color-text);
     font-family: var(--font-family);

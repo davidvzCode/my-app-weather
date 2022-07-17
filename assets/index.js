@@ -14,6 +14,22 @@ const details = null || document.getElementById('details');
 const weekdays = null || document.getElementById('weekdays');
 const select_country = null || document.getElementById('country');
 
+const btnGit = null || document.getElementById('btnGit');
+const btnDiscord = null || document.getElementById('btnDiscord');
+const btnTwiter = null || document.getElementById('btnTwiter');
+
+btnGit.addEventListener('click', () =>{
+    window.open("https://github.com/davidvzCode");
+})
+
+btnDiscord.addEventListener('click', () =>{
+    window.open("https://github.com/davidvzCode");
+})
+
+btnTwiter.addEventListener('click', () =>{
+    window.open("https://github.com/davidvzCode");
+})
+
 async function getCountry(url){
     const response = await fetch(url);
     const data = await response.json();
@@ -31,6 +47,9 @@ async function getWeather(url){
     return data;
 }
 
+
+
+
 country.addEventListener('change', (event) => {
     params.q = event.target.value;
     loadWeather();
@@ -38,7 +57,6 @@ country.addEventListener('change', (event) => {
 
 async function loadWeather(){
     try {
-
         const weather = await getWeather(API);
         let title_degress = `
                 <p class="text-degrees">${weather.current.temp_c}°C</p>
@@ -86,8 +104,11 @@ async function loadWeather(){
         `).slice(0,50).join('')}
         `; 
         loadWeather();
+        countries_name = '<option value="Ecuador" selected> Ecuador </option>' + countries_name;
         select_country.innerHTML = countries_name;
     } catch (error) {
         console.log(err);  
     }
 })();
+
+setTimeout(loadWeather,60000)
