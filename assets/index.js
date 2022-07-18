@@ -1,23 +1,27 @@
 
+const select_country = null || document.getElementById('country');
 
-const country = null || document.getElementById('country');
 const API = `http://api.weatherapi.com/v1/current.json?key=b2bfe98900e24d4fa7e22716221707&`;
 const API_COUNTRY = `https://countriesnow.space/api/v0.1/countries`;
 
 let params = {
-    q: country.value || 'Ecuador',
+    q: select_country.value ||'Ecuador',
     aqi: 'no'
 }
+
+var aux;
 
 const degress = null || document.getElementById('text_degrees');
 const details = null || document.getElementById('details');
 const weekdays = null || document.getElementById('weekdays');
-const select_country = null || document.getElementById('country');
+
 
 const btnGit = null || document.getElementById('btnGit');
 const btnDiscord = null || document.getElementById('btnDiscord');
 const btnTwiter = null || document.getElementById('btnTwiter');
 const refresh_weather = null || document.getElementById('refresh_weather');
+const browsers_input = null || document.getElementById('browsers-input');
+
 btnGit.addEventListener('click', () =>{
     window.open("https://github.com/davidvzCode");
 })
@@ -55,9 +59,11 @@ async function getWeather(url){
 
 
 
-country.addEventListener('change', (event) => {
-    params.q = event.target.value;
-    loadWeather();
+browsers_input.addEventListener('input', (event) => {
+    if (aux.data.some(e => e.country === event.target.value)) {
+        params.q = event.target.value;
+        loadWeather();
+    }
 });
 
 async function loadWeather(){
@@ -104,12 +110,13 @@ async function loadWeather(){
 (async ()=> {
     try {
         const countries = await getCountry(API_COUNTRY);
+        aux = countries;
         let countries_name = `${countries.data.map(c => `
-            <option value=${c.country}>${c.country}</option>
+            <option value=${c.country}></option>
         `).slice(0,50).join('')}
         `; 
         loadWeather();
-        countries_name = '<option value="Ecuador" selected> Ecuador </option>' + countries_name;
+        countries_name = '<option value="Ecuador" selected>  </option>' + countries_name;
         select_country.innerHTML = countries_name;
     } catch (error) {
         console.log(err);  

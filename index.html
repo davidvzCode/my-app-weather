@@ -31,8 +31,9 @@
     <section class="container__weather">
         <div class="container__weather-sub">
             <div class="container__weather-tittle" id="select_country">
-                <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' name="" id="country">
-                </select>
+                <input list="country" id="browsers-input" value="Ecuador">
+                <datalist id="country">
+                </datalist>
                 <i class="fa-solid fa-rotate fa-xl" id="refresh_weather"></i>
             </div>
             <div id="text_degrees">
