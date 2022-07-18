@@ -7,7 +7,6 @@
     <script src="https://kit.fontawesome.com/303fd48ae6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style.css" />
     <title>app-weather</title>
-    
 </head>
 <body>
 
@@ -32,7 +31,7 @@
     <section class="container__weather">
         <div class="container__weather-sub">
             <div class="container__weather-tittle" id="select_country">
-                <select name="" id="country">
+                <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' name="" id="country">
                 </select>
                 <i class="fa-solid fa-rotate fa-xl" id="refresh_weather"></i>
             </div>
